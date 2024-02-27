@@ -257,7 +257,7 @@ void StrList_printAt(const StrList* StrList, int index) {
  * @return The amount of characters in the list.
  */
 int StrList_printLen(const StrList* StrList) {
-    if (StrList->head == NULL || StrList == NULL){
+    if (StrList == NULL || StrList->head == NULL){
         return 0;
     }
     int charLenCounter = 0;
@@ -374,12 +374,12 @@ void StrList_removeAt(StrList* StrList, int index) {
  */
 int StrList_isEqual(const StrList* StrList1, const StrList* StrList2) {
 
-    if ((StrList1 == NULL && StrList2 != NULL) || (StrList1 != NULL && StrList2 == NULL) || (StrList1->size != StrList2->size)) {
-        return 0;
-    }
-
     if (StrList1 == NULL && StrList2 == NULL) {
         return 1;
+    }
+
+    if ((StrList1 == NULL && StrList2 != NULL) || (StrList1 != NULL && StrList2 == NULL) || (StrList1->size != StrList2->size)) {
+        return 0;
     }
 
     Node *current1 = StrList1->head;
